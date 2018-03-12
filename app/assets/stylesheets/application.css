@@ -503,9 +503,9 @@ span.inner_list.right {
     
  }
         .search input { 
-        position:;
+      
         width:28px;
-        float:Left;
+        float:left;
 
         -webkit-transition: all 1s ease-in-out;
         -moz-transition: all 1s ease-in-out;
