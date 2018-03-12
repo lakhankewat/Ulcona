@@ -16,6 +16,17 @@
 /*
  Custome style.css for editing...!!!
 */
+     @font-face {
+    font-family: 'Ubuntu-Regular';
+    src: url('Ubuntu-Regular.ttf');
+      }  
+
+      @font-face {
+    font-family: 'Ubuntu-Medium';
+    src: url('Ubuntu-Medium.ttf');
+      } 
+      
+
 body{
 
     font-family: "Ubuntu-Regular";
@@ -136,16 +147,7 @@ header .fa{
         .jssora22l.jssora22ldn { background-position: -250px -31px; }
         .jssora22r.jssora22rdn { background-position: -310px -31px; }
    
-        @font-face {
-    font-family: 'Ubuntu-Regular';
-    src: url('fonts/Ubuntu-Regular.ttf');
-      }  
-
-      @font-face {
-    font-family: 'Ubuntu-Medium';
-    src: url('fonts/Ubuntu-Medium.ttf');
-      } 
-      
+   
       .dropdown {
      float: left;
 
