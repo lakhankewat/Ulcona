@@ -1,14 +1,351 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Blogs</title>
+    <title>Ulcona</title>
     <%= csrf_meta_tags %>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <!-- use jssor.slider-21.1.5.debug.js instead for debug -->
+    <script>
+        jssor_1_slider_init = function() {
+            
+            var jssor_1_SlideoTransitions = [
+              [{b:-1,d:1,o:-1},{b:0,d:1000,o:1}],
+              [{b:1900,d:2000,x:-379,e:{x:7}}],
+              [{b:1900,d:2000,x:-379,e:{x:7}}],
+              [{b:-1,d:1,o:-1,r:288,sX:9,sY:9},{b:1000,d:900,x:-1400,y:-660,o:1,r:-288,sX:-9,sY:-9,e:{r:6}},{b:1900,d:1600,x:-200,o:-1,e:{x:16}}]
+            ];
+            
+            var jssor_1_options = {
+              $AutoPlay: true,
+               $AutoPlayInterval: 2000,                            //[Optional] Interval (in milliseconds) to go for next slide since the previous stopped if the slider is auto playing, default value is 3000
+               $HoverToPause: true, 
+              $SlideDuration: 800,
+              $SlideEasing: $Jease$.$OutQuint,
+              $CaptionSliderOptions: {
+                $Class: $JssorCaptionSlideo$,
+                $Transitions: jssor_1_SlideoTransitions
+              },
+              $ArrowNavigatorOptions: {
+                $Class: $JssorArrowNavigator$
+              },
+              $BulletNavigatorOptions: {
+                $Class: $JssorBulletNavigator$
+              }
+            };
+            
+            var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+            
+            //responsive code begin
+            //you can remove responsive code if you don't want the slider scales while window resizing
+            function ScaleSlider() {
+                var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+                if (refSize) {
+                    refSize = Math.min(refSize, 1920);
+                    jssor_1_slider.$ScaleWidth(refSize);
+                }
+                else {
+                    window.setTimeout(ScaleSlider, 30);
+                }
+            }
+            ScaleSlider();
+            $Jssor$.$AddEvent(window, "load", ScaleSlider);
+            $Jssor$.$AddEvent(window, "resize", ScaleSlider);
+            $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
+            //responsive code end
+        };
+    </script>
   </head>
 
   <body>
+       <header>
+       	     <div class="top_header container-fluied">
+      <div class="container"> 
+        <div class="col-md-8 top_left">
+         <div class="col">
+              <div class="translater notranslate">
+            <ul class="language_tran notranslate">
+              <li class="first_li">
+              <a data-toggle=""  href="#" class="dropdown-toggle" aria-expanded="false">
+          <span id="language_xx" class="box notranslate" data-lang="Finnish" > <%= image_tag ("finnish.jpg") %><span class="notranslate"> Suomi  </span></span> </a>
+          </a>
+                 <ul class="translation-links dropdown notranslate"> 
+<li for="1">  <a href="#" onClick="reply_click(this.id)" id="11" class="english notranslate" data-lang="English"> <%= image_tag ("english.jpg") %><span class="notranslate"> English </span></a> </li>
+             <li for="2"> <a href="#"  onClick="reply_click(this.id)" id="12" class="finnish notranslate" data-lang="Finnish"> <%= image_tag ("finnish.jpg") %><span class="notranslate"> Suomi </span></a> </li>
+           
+          </ul>
+              </li>
+            </ul>
+                </div>
+ </div> <span class="sep_line desktop"></span>
+                     
+                      <div class="col desktop"> <i class="fa fa-phone m_r" aria-hidden="true"></i>    +358 40 726 1011    </div>
+                      <div class="col desktop"> <i class="fa fa-map-marker m_r" aria-hidden="true"></i> Ulcona Oy Hämeentie 22 F 106, 00530 HELSINKI</div> 
+        </div>
+        <div class="col-md-4 top_right">
+                 <div class="col right_align">
+ <div class="search desktop">
+<form action="search.php" name="SearchForm" method="get">
+<input type="text" name="s" maxlength="64" id="SearchForm" placeholder="Haku" />
+</form>
+<div class="srch_btn" onclick="SearchForm.submit()"><i class="fa fa-search" aria-hidden="true"></i></div></div> 
+     
+                       <div class="mobile_cart mobile">
+              
+            </div>
+     <span class="sep_line to_c right_align desktop"> </span>        
+ </div>
+    <span class="sep_line to_c right_align mobile"></span>  
+       <div class="col login_box right_align"> 
+       
+           <div class="login_tab" id="login"> <i class="fa fa-user m_r" aria-hidden="true"></i><span class="desktop"> Kirjaudu </span></div>
+             
+                   <div class="login_tab"> <a href="logout.php"> <i class="fa fa-key" aria-hidden="true"></i><span class="desktop"> Kirjaudu ulos </span> </a></div> <div class="account_tab"> <a href="account.php"> <i class="fa fa-user m_r" aria-hidden="true"></i><span class="desktop"> Tili </span> </a></div>
+                 
+           <div class="pannel" id="login_pennal">
+             <form method="post" action="process.php">
+           
+               <div class="form_pannal">
+                     
+                      <lable> Kirjaudu | Sähköposti </lable>
+                          <input type="text" class="input_t" name="user_name">
+                           <lable> Salasana  </lable>
+                          <input type="password"  class="input_t"  name="password">
+                       </div>
+                     <div class="login_footer">
+                        
+                        <p id="message" style="text-align:center;color:red"> Valitettavasti käyttäjätunnus tai salasana on väärä! </p>
+                       
+                        <div class="links part"> <a href="forgetpassword.php" class="black_link"> Unohditko salasanasi? </a><br>
+                        
+                       </div>
+                       <div class="login_b part"> <input type="submit" name="user_login" value="Kirjaudu" class="login_butons">  <a href="user_registration.php" class="green_link"> Rekisteröinti </a> </div></div>
+                       </form>
+                     </div>
+                    </div>
+            </div>
+                  </div>
+         </div>  
+                        <p id="message2" class="message" style="text-align:center;color:red"> Valitettavasti Kirjautumistietosi on epäonnistunut. Tarkista käyttäjätunnus tai salasana! </p>
+                       
+               </div>
+  <div class="second_header container-fluied">  
+  <div class="container">     
+        <div class="logo col-md-2">
+                   <a href="landing.php"><%= image_tag ("ulcona_logo1.png") %></a>
+                  
+                   <div class="toggle" id="toggle">
+                       <i class="fa fa-bars" aria-hidden="true"></i>
+                   </div>
+                    </div>
+        <div class="col-md-8">
+                         
+                         <nav>
+    <ul class="main_menus mobile_menus" id="main_menus">
+        <li> 
+           <a class="<?php echo ($page_name=='landing.php')?'active':'';?>" href="landing.php">
+             ETUSIVU  
+            </a>
+         </li>
+        <li>
+             <a class="<?php echo ($page_name=='offers.php')?'active':'';?>" href ="offers.php"> 
+                 ÄKKILÄHDÖT
+                 </a>
+         </li>
+        <li> 
+        <a class="<?php echo ($page_name=='Advertisment_spots.php')?'active':'';?>"  href="Advertisment_spots.php">  
+           MAINOSPAIKAT
+       </a>
+            </li>
+        <li> 
+          <a class="<?php echo ($page_name=='Additional_services.php')?'active':'';?>"  href="Additional_services.php">LISÄPALVELUT 
+          </a> 
+        </li>
+        <li> 
+          <a class="<?php echo ($page_name=='terms_of_sale.php')?'active':'';?>"  href="terms_of_sale.php">Myyntiehdot 
+          </a> 
+        </li>
+        <li> 
+          <a class="<?php echo ($page_name=='contacts.php')?'active':'';?>" href="contacts.php">
+            YHTEYSTIEDOT
+           </a>
+        </li>
+
+    </ul>
+                         </nav> 
+ </div>
+        <div class="col-md-2 cart mobilecart">
+                    <ul class="main_menus">
+          <li><a  href="#" class="cart-box" id="cart_show"><i class="fa fa-shopping-cart m_r" aria-hidden="true"></i><span class="desktop"> OSTOSKORI </span><span href="#" id="cart-info">
+             
+</span>
+</a>
+
+<div class="shopping-cart-box">
+    <div id="shopping-cart-results">
+    </div>
+</div> 
+</li>
+ </ul>
+ </div>
+ </div>
+</div>   
+       </header>
     <%= yield %>
+    <div class="footer container-fluid padding_bottom">
+    <div class="container">
+      <div class="col-md-3">
+        <p class="footer_text"><span class="green_text"> Puhelin  </span> 040 726 1011 </p>
+      </div>
+        <div class="col-md-4">
+          <span class="green_text social_tt"> Sosiaalinen media  </span>
+           <ul class="social"> 
+           <li><a href="https://www.facebook.com/pages/Ulcona-Oy/229116040483605" target="_blank"> <i class="fab fa-facebook-f" aria-hidden="true"></i> </a></li>
+           <li> <a href="#" target="_blank"> <i class="fab fa-vimeo-v" aria-hidden="true"></i> </a></li>
+           <li> <a href="https://www.instagram.com/ulcona/" target="_blank"> <i class="fab fa-instagram" aria-hidden="true"></i> </a></li>
+           <li> <a href="#" target="_blank"> <i class="fab fa-flickr" aria-hidden="true"></i></a></li>
+            </ul>
+         
+      </div>
+        <div class="col-md-5 subscribe">
+        <form method="post" action="" id="filterform">
+          <span class="green_text"> Liity sähköpostilistalle </span> 
+           <input type="email" id="emailid" name="email" placeholder="syötä sähköposti..." class="input_box footer_input"> <a  class="sub_button" id="subscribe"> Liity </a>
+          <br><span id="show_result"> </span>
+          </form>
+      </div>
+      <div class="hr_line col-md-12"></div>
+
+      <div class="col footer_logo no_border">
+         <div class="col no_border col1">  <%= image_tag ("logo_white.png"), :class => "footer_logo_img" %>   <%= image_tag ("1S.jpg"), :class => "intos" %> </div> <div class="footer_text col no_border address col2">  Ulcona Oy Erottajankatu 9 A,<br> 00130 HELSINKI </div>
+      </div>
+       <nav>
+                                <ul class="footer_menus">
+                                    <li> <a href="index.php"> ETUSIVU  </a> </li>
+                                    <li>  <a href="offers.php"> ÄKKILÄHDÖT   </a> </li>
+                                    <li>   <a href="Advertisment_spots.php"> MAINOSPAIKAT </a> </li>
+                                    <li>  <a href="Additional_services.php"> LISÄPALVELUT </a>  </li>
+                                    <li>  <a href="terms_of_sale.php"> Myyntiehdot </a> </li>
+                                    <li>  <a href="contacts.php"> YHTEYSTIEDOT </a> </li>
+                                    
+                                </ul>
+                         </nav> 
+    
+
+       <div class="hr_line col-md-12"></div>
+       <div class="col-md-12 center" style="color:#fff">
+           <a href="ulcona.com" class="green_text"> Ulcona Oy 2018 </a>|  &nbsp; Site Powered By <a href="http://sapartners.fi" target="_blank" class="green_text">  Oy SA Partners Ab   </a> 
+       </div>
+
+    </div>
+</div>
+ <script type="text/javascript">
+       
+    $("#subscribe").click(function()
+    {
+       var id = document.getElementById('emailid').value;
+       var dataString = 'id='+ id;
+      // alert(id);
+         $.ajax
+        ({
+            type:"POST",
+            url: "subscribajx.php",
+           data: dataString,
+            cache: false,
+              success: function(html)
+            {
+                //alert();
+                $("#show_result").html(html);
+            } 
+        });
+    });
+        </script>
+
+   <script type="text/javascript">
+function reply_click(clicked_id)
+{
+  var language_xc = document.getElementById(clicked_id).innerHTML;
+       
+           document.getElementById('language_xx').innerHTML = language_xc ;
+                     
+}
+
+window.setInterval(function(){
+     var lang = $(".goog-te-menu-value span:first").text();
+    // alert(lang);
+    if(lang =='English'){
+              
+               document.getElementById('language_xx').innerHTML = '<%= image_tag ("english.jpg") %> English';
+           }
+    if(lang =='Finnish'){
+            document.getElementById('language_xx').innerHTML = '<%= image_tag ("english.jpg") %> Suomi';
+
+           }
+});
+
+</script>   
+
+
+
+<div id="google_translate_element"></div>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'fi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
+  }
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript"></script>
+
+<!-- Flag click handler -->
+<script type="text/javascript">
+    $('.translation-links a').click(function() {
+      var lang = $(this).data('lang');
+      var $frame = $('.goog-te-menu-frame:first');
+      if (!$frame.size()) {
+        alert("Error: Could not find Google translate frame.");
+        return false;
+      }
+      $frame.contents().find('.goog-te-menu2-item span.text:contains('+lang+')').get(0).click();
+      return false;
+    });
+</script>
+
+<script>
+$(document).ready(function(){
+    $("#login").click(function(){
+        $("#login_pennal").toggle();
+    });
+});
+
+$(document).ready(function(){
+    $("#cart_show").click(function(){
+        $(".shopping-cart-box").toggle();
+    });
+});
+
+$(document).ready(function(){
+    $("#toggle").click(function(){
+        $("#main_menus").toggle();
+    });
+});
+
+jQuery(function ($) {
+    $('#login').click(function () {
+        $(this).toggleClass('actv')
+    })
+});
+
+      $(document).ready( function() {
+        $('#message').delay(6000).fadeOut();
+      });
+
+      $(document).ready( function() {
+        $('#message2').delay(5000).fadeOut();
+      });
+    </script>
+    <script type="text/javascript" src="assets/js/cart.js"></script>
   </body>
 </html>
