@@ -130,15 +130,15 @@
             </div>
                   </div>
          </div>  
-                        <p id="message2" class="message" style="text-align:center;color:red"> Valitettavasti Kirjautumistietosi on epäonnistunut. Tarkista käyttäjätunnus tai salasana! </p>
-                       
+                         
                </div>
   <div class="second_header container-fluied">  
   <div class="container">     
         <div class="logo col-md-2">
-                   <a href="landing.php"><%= image_tag ("ulcona_logo1.png") %></a>
-                  
-                   <div class="toggle" id="toggle">
+                     <%= link_to root_path do %>
+                              <%= image_tag "ulcona_logo1.png"  %>
+                       <% end %>
+                 <div class="toggle" id="toggle">
                        <i class="fa fa-bars" aria-hidden="true"></i>
                    </div>
                     </div>
@@ -147,17 +147,15 @@
                          <nav>
     <ul class="main_menus mobile_menus" id="main_menus">
         <li> 
-           <a class="<?php echo ($page_name=='landing.php')?'active':'';?>" href="landing.php">
-             ETUSIVU  
-            </a>
+        <%= link_to "ETUSIVU", root_path %>
          </li>
         <li>
-             <a class="<?php echo ($page_name=='offers.php')?'active':'';?>" href ="offers.php"> 
+             <a class="<?php echo ($page_name=='offers.php')?'active':'';?>" href ="#"> 
                  ÄKKILÄHDÖT
                  </a>
          </li>
         <li> 
-        <a class="<?php echo ($page_name=='Advertisment_spots.php')?'active':'';?>"  href="Advertisment_spots.php">  
+        <a class="<?php echo ($page_name=='Advertisment_spots.php')?'active':'';?>"  href="#">  
            MAINOSPAIKAT
        </a>
             </li>
@@ -222,12 +220,12 @@
       </div>
        <nav>
                                 <ul class="footer_menus">
-                                    <li> <a href="index.php"> ETUSIVU  </a> </li>
-                                    <li>  <a href="offers.php"> ÄKKILÄHDÖT   </a> </li>
-                                    <li>   <a href="Advertisment_spots.php"> MAINOSPAIKAT </a> </li>
-                                    <li>  <a href="Additional_services.php"> LISÄPALVELUT </a>  </li>
-                                    <li>  <a href="terms_of_sale.php"> Myyntiehdot </a> </li>
-                                    <li>  <a href="contacts.php"> YHTEYSTIEDOT </a> </li>
+                                    <li>   <%= link_to "ETUSIVU", root_path %></li>
+                                    <li>  <a href="#"> ÄKKILÄHDÖT   </a> </li>
+                                    <li>   <a href="#"> MAINOSPAIKAT </a> </li>
+                                    <li>   <%= link_to "LISÄPALVELUT", "/services" %> </li>
+                                    <li>   <%= link_to "Myyntiehdot", "/terms_of_sale" %> </li>
+                                    <li>   <%= link_to "YHTEYSTIEDOT", "/contacts" %> </li>
                                     
                                 </ul>
                          </nav> 
