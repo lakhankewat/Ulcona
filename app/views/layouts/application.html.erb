@@ -162,17 +162,14 @@
        </a>
             </li>
         <li> 
-          <a class="<?php echo ($page_name=='Additional_services.php')?'active':'';?>"  href="Additional_services.php">LISÄPALVELUT 
-          </a> 
+         <%= link_to "LISÄPALVELUT", "/services" %>
         </li>
         <li> 
-          <a class="<?php echo ($page_name=='terms_of_sale.php')?'active':'';?>"  href="terms_of_sale.php">Myyntiehdot 
-          </a> 
+       
+            <%= link_to "Myyntiehdot", "/terms_of_sale" %>
         </li>
         <li> 
-          <a class="<?php echo ($page_name=='contacts.php')?'active':'';?>" href="contacts.php">
-            YHTEYSTIEDOT
-           </a>
+            <%= link_to "YHTEYSTIEDOT", "/contacts" %>
         </li>
 
     </ul>
