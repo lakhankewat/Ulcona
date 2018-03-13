@@ -16,14 +16,16 @@
 /*
  Custome style.css for editing...!!!
 */
+    
      @font-face {
     font-family: 'Ubuntu-Regular';
-    src: url('/assets/Ubuntu-Regular1.ttf');
+    src: font-url(asset-path("Ubuntu-Regular.ttf"));
       }  
 
       @font-face {
     font-family: 'Ubuntu-Medium';
-    src: url('/assets/Ubuntu-Medium1.ttf');
+    
+    src: font-url(asset-path("Ubuntu-Medium.ttf"));
       } 
       
 
