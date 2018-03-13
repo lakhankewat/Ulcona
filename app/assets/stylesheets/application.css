@@ -18,12 +18,12 @@
 */
      @font-face {
     font-family: 'Ubuntu-Regular';
-    src: url('Ubuntu-Regular.ttf');
+    src: url('/assets/Ubuntu-Regular.ttf');
       }  
 
       @font-face {
     font-family: 'Ubuntu-Medium';
-    src: url('Ubuntu-Medium.ttf');
+    src: url('/assets/Ubuntu-Medium.ttf');
       } 
       
 
